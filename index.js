@@ -13,6 +13,9 @@ const blogRouter = require("./routers/blogRouter")
 
 app.use("/web", webRouter)
 app.use("/blog", blogRouter)
+app.get("/",(req, res)=>{
+    res.send("server runnig")
+})
 
 mongoose.connect(process.env.mongo_url)
     .then(()=>{
