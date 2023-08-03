@@ -8,24 +8,24 @@ port = < setting your server port >
 
 ---
 ## /web
-- **/web/create** 
+- **/web** 
 method **POST** for create new view collection in mongoDB
 
-- **/web/read** 
+- **/web** 
 method **GET** for get total view from mongoDB
 
-- **/web/update** 
+- **/web** 
 method **PUT** for add a view to mongoDB
 ---
 ## /blog
-- **/blog/create** 
+- **/blog** 
 method **POST** for create new view collection in mongoDB
 
-- **/blog/read** 
+- **/blog** 
 method **GET** for get total view from mongoDB
 **{blog : < your target >}**
 
-- **/blog/update**
+- **/blog**
  method **PUT** for add a view to mongoDB
 **{blog : < your target >}**
 ---
