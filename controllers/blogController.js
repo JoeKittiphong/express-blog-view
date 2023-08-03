@@ -2,7 +2,7 @@ const blogModel = require("../models/blogModel")
 
 exports.create = async(req, res)=>{
     try {
-        await blogModel.create({blog : req.body.blog, view : 0, share : 0})
+        await blogModel.create({blog : req.query.blog , view : 0, share : 0})
         return res.send("blog view created")
     } catch (error) {
         return res.send(error)
@@ -11,9 +11,9 @@ exports.create = async(req, res)=>{
 
 exports.read = async(req, res)=>{
     try {
-        const data = await blogModel.find({blog : req.body.blog})
+        const data = await blogModel.find({blog : req.query.blog})
         if(!await data[0]){
-            await blogModel.create({blog : req.body.blog, view : 0, share : 0})
+            await blogModel.create({blog : req.query.blog, view : 0, share : 0})
             console.log("new blog created");
         }
         return res.send(data[0])
@@ -24,9 +24,9 @@ exports.read = async(req, res)=>{
 
 exports.updateView = async(req, res)=>{
     try {
-        const data = await blogModel.find({blog : req.body.blog})
+        const data = await blogModel.find({blog : req.query.blog})
         if(!await data[0]){
-            await blogModel.create({blog : req.body.blog, view : 0, share : 0})
+            await blogModel.create({blog : req.query.blog, view : 0, share : 0})
             console.log("new blog created");
         }
         const {_id, blog, view, share} = data[0]
@@ -40,9 +40,9 @@ exports.updateView = async(req, res)=>{
 
 exports.updateShare = async(req, res)=>{
     try {
-        const data = await blogModel.find({blog : req.body.blog})
+        const data = await blogModel.find({blog : req.query.blog})
         if(!await data[0]){
-            await blogModel.create({blog : req.body.blog, view : 0, share : 0})
+            await blogModel.create({blog : req.query.blog, view : 0, share : 0})
             console.log("new blog created");
         }
         const {_id, blog, view, share} = data[0]
